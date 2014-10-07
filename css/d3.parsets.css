@@ -70,7 +70,7 @@
 
 .ribbon path {
   stroke-opacity: 0;
-  fill-opacity: .5;
+  fill-opacity: .2;
 }
 
 .ribbon path.active {
