@@ -9,8 +9,6 @@
 
 <body>
 <h1>Parallel Sets</h1>
-
-<h2>Control Correlation</h2>
 <div id="vis"><noscript><img src="parsets.png"></noscript></div>
 
 <script src="d3/d3.min.js"></script>
@@ -21,13 +19,13 @@
 var padding_width = 200;
 var padding_height = 200;
 var chart = d3.parsets()
-    .dimensions(["BORO", "CUISINE","GRADE"]);
+    .dimensions(["BORO", "CUISINE", "GRADE"]);
 
 var vis = d3.select("#vis").append("svg")
     .attr("width", (chart.width() + padding_width))
     .attr("height", (chart.height() + padding_height));
 
-d3.csv("restaurants.csv", function(error, csv) {
+d3.csv("restaurants3.csv", function(error, csv) {
 ;  vis.datum(csv).call(chart);
 });
 
