@@ -6,6 +6,9 @@ var tx = 10;
 var ty = 10;
 var ribbonClicked = false;
 var clickedNode = null;
+var chartWidth = 960;
+var chartHeight = 600;
+var chartY = 50;
 
 (function() {
   d3.parsets = function() {
@@ -15,10 +18,10 @@ var clickedNode = null;
         tooltip_ = defaultTooltip,
         categoryTooltip = defaultCategoryTooltip,
         value_,
-        spacing = 20,
+        spacing = 40,
         width,
         height,
-        tension = 1,
+        tension = 0.5,
         tension0,
         duration = 500;
 
@@ -347,13 +350,16 @@ var clickedNode = null;
               .tween("ribbon", ribbonTweenX);
 
           categoryEnter.append("rect")
+              //.attr("width", function(d) { return d.dx; })
               .attr("width", function(d) { return d.dx; })
               .attr("y", -20)
               .attr("height", 20);
+          //Categories horizontal bars    
           categoryEnter.append("line")
               .style("stroke-width", catBarHeight);
           categoryEnter.append("text")
-              .attr("dy", "-.3em");
+              .attr("dy", "-.4em")
+              .attr("transform", "translate(" + tx + "," + ty + ")rotate(" + textRotation + ")");
           category.select("rect")
               .attr("width", function(d) { return d.dx; })
               .attr("class", function(d) {
@@ -362,7 +368,7 @@ var clickedNode = null;
           category.select("line")
               .attr("x2", function(d) { return d.dx; });
           category.select("text")
-              .text(truncateText(function(d) { return d.name; }, function(d) { return d.dx; }));
+              .text(truncateText(function(d) { return d.dimension.name + ": " +  d.name; }, function(d) { return d.dx; }));
         }
       });
     }
@@ -432,7 +438,7 @@ var clickedNode = null;
         .style("display", "none")
         .attr("class", "parsets tooltip");
 
-    return d3.rebind(parsets, event, "on").value(1).width(960).height(600);
+    return d3.rebind(parsets, event, "on").value(1).width(chartWidth).height(chartHeight);
 
     function dimensionFormatName(d, i) {
       return dimensionFormat.call(this, d.name, i);
@@ -458,7 +464,7 @@ var clickedNode = null;
     function layout(tree, dimensions, ordinal) {
       var nodes = [],
           nd = dimensions.length,
-          y0 = 45,
+          y0 = chartY,
           dy = (height - y0 - 2) / (nd - 1);
       dimensions.forEach(function(d, i) {
         d.categories.forEach(function(c) {
