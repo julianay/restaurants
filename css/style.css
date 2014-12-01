@@ -1,10 +1,11 @@
 body {
   letter-spacing: -0.1px;
   font-size: 14px;
-  color: #575552;
+  color: #fff;
   width: 960px;
   margin: 1em auto;
   position: relative;
+  text-align: center;
 }
 
 h1, h2, .dimension text {
@@ -22,14 +23,14 @@ h1 {
 
 h2 {
   letter-spacing: -0.8px;
-  font-size: 24px;
+  font-size: 21px;
   margin-top: 10px;
   color: #575552;
 }
 
 p.meta, p.footer {
   font-size: 10px;
-  color: #333;
+  color: #fff;
 }
 
 p.meta {
@@ -52,34 +53,6 @@ text.icicle {
 
 .source {
   float: right;
-}
-
-.html .value,
-.javascript .string,
-.javascript .regexp {
-  color: #756bb1;
-}
-
-.html .tag,
-.css .tag,
-.javascript .keyword {
-  color: #3182bd;
-}
-
-.comment {
-  color: #636363;
-}
-
-.html .doctype,
-.javascript .number {
-  color: #31a354;
-}
-
-.html .attribute,
-.css .attribute,
-.javascript .class,
-.javascript .special {
-  color: #e6550d;
 }
 
 /*# sourceMappingURL=style.css.map */

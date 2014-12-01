@@ -1,14 +1,15 @@
-$category0: #b2aa9b; /* grey */
-$category1: #78b3b2; /* light blue */
+$category0: #eebb2c; /* yellow */
+$category1: #e02827; /* red */
 $category2: #40709c; /* blue */
 $category3: #ea9290; /* pink */
 $category4: #784184; /* purple */
 $category5: #841a19; /* burgundy */
+$category8: #b2aa9b; /* grey */
 $category6: #a0c83c; /* green */
-$category7: #eebb2c; /* yellow */
-$category8: #e02827; /* red */
+$category7: #78b3b2; /* light blue */
+
 $category9: #d56230; /* orange */
-$textColor: #575552; /* dark grey */
+$textColor: #aaa; /* dark grey */
 
 
 .dimension {
@@ -22,7 +23,7 @@ $textColor: #575552; /* dark grey */
 .dimension tspan.name {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; ;
   font-weight: 300;
-  font-size: 24px;
+  font-size: 18px;
   color: $textColor;
   letter-spacing: -0.2px;
 }
@@ -47,6 +48,8 @@ $textColor: #575552; /* dark grey */
 
 .dimension line {
   stroke: $textColor;
+  opacity: 0.7;
+  text-align: center;
 }
 
 .dimension rect {

@@ -19,13 +19,13 @@
 var padding_width = 200;
 var padding_height = 200;
 var chart = d3.parsets()
-    .dimensions(["award4", "award1", "award2", "award3", "award5", "award6", "award7"]);
+    .dimensions(["activity", "income", "region", "marital", "children", "sex", "age"]);
 
 var vis = d3.select("#vis").append("svg")
     .attr("width", (chart.width() + padding_width))
     .attr("height", (chart.height() + padding_height));
 
-d3.csv("data.csv", function(error, csv) {
+d3.csv("data2.csv", function(error, csv) {
 ;  vis.datum(csv).call(chart);
 });
 
