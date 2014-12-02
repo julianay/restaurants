@@ -1,5 +1,5 @@
-$category0: #eebb2c; /* yellow */
-$category1: #e02827; /* red */
+$category0: #be5021; /* orange */
+$category1: #9b0e0d; /* red */
 $category2: #40709c; /* blue */
 $category3: #ea9290; /* pink */
 $category4: #784184; /* purple */
@@ -7,42 +7,45 @@ $category5: #841a19; /* burgundy */
 $category6: #a0c83c; /* green */
 $category7: #78b3b2; /* light blue */
 $category8: #b2aa9b; /* grey */
-$category9: #d56230; /* orange */
-$textColor: #000; /* dark grey */
+$category9: #eebb2c; /* yellow */
+$textColor: #aaa; /* dark grey */
 
 body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 200;
   letter-spacing: -0.1px;
   font-size: 10px;
-  color: #fff;
+  color: $textColor;
   width: 960px;
   margin: 1em auto;
   position: relative;
   text-align: center;
+  background-color: #333;
 }
+/*
 h1, h2, .dimension text {
   text-align: center;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; ;
-  font-weight: 300;
+  font-family: "HelveticaNeue-UltraLight", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 200;
   color:#fff;
 }
+*/
 
 .category text {
-   fill: #fff;
+   fill: #999;
    font-size: 12px;
    text-transform: uppercase;
    letter-spacing: 0.1px;
 }
 
-rect.category-0{
-  fill: $category0;
-  stroke: $category0;
-}
-
 h1 {
-  letter-spacing: -0.8px;
+  font-family: "HelveticaNeue-UltraLight", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 200;
+  letter-spacing: 1.3px;
   font-size: 30px;
   margin-top: 40px;
   color: $textColor;
+  text-transform: uppercase;
 }
 h2 {
   letter-spacing: -0.8px;
@@ -73,8 +76,6 @@ text.icicle { pointer-events: none; }
 }
 
 .dimension tspan.name {
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; ;
-  font-weight: 300;
   font-size: 10px;
   color: $textColor;
   letter-spacing: -0.2px;
@@ -100,12 +101,13 @@ text.icicle { pointer-events: none; }
 }
 
 .dimension line {
-  stroke: rgba(0, 0, 0, 0.5);
+  stroke: rgba(0, 0, 0, 0.6);
   text-align: center;
 }
 
 line.category-0 {
   stroke: $category0;
+  stroke-width: 60px;
 }
 
 line.category-1 {
@@ -114,6 +116,30 @@ line.category-1 {
 
 line.category-2 {
   stroke: $category2;
+}
+
+text.text-0{
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.1px;
+  fill: #fff;
+  font-size:14px;
+}
+
+text.text-1{
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.1px;
+  fill: #fff;
+  font-size:14px;
+}
+
+text.text-2{
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.1px;
+  fill: #fff;
+  font-size:14px;
 }
 
 .dimension rect {
@@ -203,12 +229,14 @@ line.category-2 {
 .tooltip {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; ;
   font-weight: 300;
-  font-size: 12px;
+  font-size: 10px;
   /*color: lighten($textColor, 40%);*/
   color:#fff;
   background-color: rgba(40, 40, 40, 0.9);
   position: absolute;
-  padding: 5px;
+  padding: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /*# sourceMappingURL=d3.parsets.css.map */

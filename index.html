@@ -3,21 +3,21 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>The Demographics of Fraud</title>
+	<title>Fraud Patterns</title>
 	<style>@import url(css/d3.parsets.css);</style>
 	<script src="d3/d3.min.js"></script>
 	<script src="d3.parsets.js"></script>
 	<script src="highlight.min.js"></script>
 	</head>
 	<body>
-	<h1>The Demographics of Fraud</h1>
+	<h1>Fraud Patterns</h1>
 	<div id="vis"><noscript><img src="parsets.png"></noscript></div>
 
 	<script>
 	var padding_width = 200;
 	var padding_height = 200;
 	var chart = d3.parsets()
-    .dimensions(["status", "income", "region", "married", "age", "children", "sex"]);
+    .dimensions(["activity", "income", "region", "married", "age", "children", "sex"]);
 
 	var vis = d3.select("#vis").append("svg")
     .attr("width", (chart.width() + padding_width))

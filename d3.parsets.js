@@ -1,6 +1,6 @@
 // Parallel Sets by Jason Davies, http://www.jasondavies.com/
 // Functionality based on http://eagereyes.org/parallel-sets
-var catBarHeight = 25;
+var catBarHeight = 23;
 var textRotation = 0;
 var tx = 10;
 var ty = 10;
@@ -18,7 +18,7 @@ var chartY = 50;
         tooltip_ = defaultTooltip,
         categoryTooltip = defaultCategoryTooltip,
         value_,
-        spacing = 40,
+        spacing = 50,
         width,
         height,
         tension = 0.5,
@@ -37,6 +37,7 @@ var chartY = 50;
             total,
             ribbon;
 
+
         d3.select(window).on("mousemove.parsets." + ++parsetsId, unhighlight);
 
         if (tension0 == null) tension0 = tension;
@@ -45,6 +46,7 @@ var chartY = 50;
           .enter().append("g")
             .attr("class", String);
         updateDimensions();
+        //called when applying curves
         if (tension != tension0) {
           var t = d3.transition(g);
           if (t.tween) t.tween("ribbon", tensionTween);
@@ -64,12 +66,14 @@ var chartY = 50;
           var dimension = g.selectAll("g.dimension"),
               cache = {};
           dimension.each(function(d) { cache[d.name] = d; });
+          //loops through each category
           dimensionNames.forEach(function(d) {
             if (!cache.hasOwnProperty(d)) {
               cache[d] = {name: d, categories: []};
             }
             dimensions.push(cache[d]);
           });
+          //passing compareY function as parameter to sort function - assume it's overloading it?
           dimensions.sort(compareY);
           // Populate tree with existing nodes.
           g.select(".ribbon").selectAll("path")
@@ -351,12 +355,24 @@ var chartY = 50;
               .tween("ribbon", ribbonTweenX);
 
           categoryEnter.append("rect")
-              .attr("width", function(d) { return d.dx; })
+              .attr("width", function(d) {  return d.dx; })
               .attr("y", -10)
               .attr("height", 20);
           //Categories horizontal bars    
+/*
           categoryEnter.append("line")
-              .style("stroke-width", catBarHeight);
+              .style("stroke-width", catBarHeight);*/
+
+          categoryEnter.append("line")
+              .style("stroke-width", function(d, i) { 
+                if (d.name.match(/^(suspicious|fraud|normal)$/)) {
+                /*if(d.name == "suspicious"){*/
+                  return 35; 
+                }else{
+                  return catBarHeight;
+                }
+              });
+
           categoryEnter.append("text")
               .attr("dy", "-.4em")
               .attr("transform", "translate(" + tx + "," + ty + ")rotate(" + textRotation + ")");
@@ -371,7 +387,10 @@ var chartY = 50;
                 return "category-" + (d.dimension === dimensions[0] ? ordinal(d.name) : "background");
               });
           category.select("text")
-              .text(truncateText(function(d) { return d.dimension.name + ": " +  d.name; }, function(d) { return d.dx; }));
+              .text(truncateText(function(d) { return d.dimension.name + ": " +  d.name; }, function(d) { return d.dx; }))
+              .attr("class", function(d) {
+                return "text-" + (d.dimension === dimensions[0] ? ordinal(d.name) : "background");
+              });;
         }
       });
     }
@@ -667,10 +686,10 @@ var chartY = 50;
     var count = d.count,
         path = [];
     while (d.parent) {
-      if (d.name) path.unshift(d.name);
+      if (d.name) path.unshift(d.dimension + ":" + d.name);
       d = d.parent;
     }
-    return path.join(" → ") + "<br>" + comma(count) + " (" + percent(count / d.count) + ")";
+    return path.join("<br> ▼ <br>") + "<br>" + comma(count) + " (" + percent(count / d.count) + ")";
   }
 
   function defaultCategoryTooltip(d) {

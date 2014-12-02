@@ -1,4 +1,4 @@
-/* yellow */
+/* orange */
 /* red */
 /* blue */
 /* pink */
@@ -7,42 +7,44 @@
 /* green */
 /* light blue */
 /* grey */
-/* orange */
+/* yellow */
 /* dark grey */
 body {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 200;
   letter-spacing: -0.1px;
   font-size: 10px;
-  color: #fff;
+  color: #aaa;
   width: 960px;
   margin: 1em auto;
   position: relative;
   text-align: center;
+  background-color: #333;
 }
 
+/*
 h1, h2, .dimension text {
   text-align: center;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-weight: 300;
-  color: #fff;
+  font-family: "HelveticaNeue-UltraLight", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 200;
+  color:#fff;
 }
-
+*/
 .category text {
-  fill: #fff;
+  fill: #999;
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 0.1px;
 }
 
-rect.category-0 {
-  fill: #eebb2c;
-  stroke: #eebb2c;
-}
-
 h1 {
-  letter-spacing: -0.8px;
+  font-family: "HelveticaNeue-UltraLight", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 200;
+  letter-spacing: 1.3px;
   font-size: 30px;
   margin-top: 40px;
-  color: #000;
+  color: #aaa;
+  text-transform: uppercase;
 }
 
 h2 {
@@ -88,26 +90,24 @@ text.icicle {
 }
 
 .dimension tspan.name {
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-weight: 300;
   font-size: 10px;
-  color: #000;
+  color: #aaa;
   letter-spacing: -0.2px;
   opacity: 0;
 }
 
 .dimension tspan.sort {
-  fill: #000;
+  fill: #aaa;
   cursor: pointer;
   opacity: 0;
 }
 
 .dimension tspan.sort:hover {
-  fill: #000;
+  fill: #aaa;
 }
 
 .dimension:hover tspan.name {
-  fill: #000;
+  fill: #aaa;
 }
 
 .dimension:hover tspan.sort {
@@ -115,20 +115,45 @@ text.icicle {
 }
 
 .dimension line {
-  stroke: rgba(0, 0, 0, 0.5);
+  stroke: rgba(0, 0, 0, 0.6);
   text-align: center;
 }
 
 line.category-0 {
-  stroke: #eebb2c;
+  stroke: #be5021;
+  stroke-width: 60px;
 }
 
 line.category-1 {
-  stroke: #e02827;
+  stroke: #9b0e0d;
 }
 
 line.category-2 {
   stroke: #40709c;
+}
+
+text.text-0 {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.1px;
+  fill: #fff;
+  font-size: 14px;
+}
+
+text.text-1 {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.1px;
+  fill: #fff;
+  font-size: 14px;
+}
+
+text.text-2 {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.1px;
+  fill: #fff;
+  font-size: 14px;
 }
 
 .dimension rect {
@@ -137,7 +162,7 @@ line.category-2 {
 }
 
 .dimension > rect, .category-background {
-  fill: #000;
+  fill: #aaa;
 }
 
 .dimension > rect {
@@ -166,13 +191,13 @@ line.category-2 {
 }
 
 .category-0 {
-  fill: #eebb2c;
-  stroke: #eebb2c;
+  fill: #be5021;
+  stroke: #be5021;
 }
 
 .category-1 {
-  fill: #e02827;
-  stroke: #e02827;
+  fill: #9b0e0d;
+  stroke: #9b0e0d;
 }
 
 .category-2 {
@@ -211,19 +236,21 @@ line.category-2 {
 }
 
 .category-9 {
-  fill: #d56230;
-  stroke: #d56230;
+  fill: #eebb2c;
+  stroke: #eebb2c;
 }
 
 .tooltip {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
-  font-size: 12px;
+  font-size: 10px;
   /*color: lighten($textColor, 40%);*/
   color: #fff;
   background-color: rgba(40, 40, 40, 0.9);
   position: absolute;
-  padding: 5px;
+  padding: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /*# sourceMappingURL=d3.parsets.css.map */
