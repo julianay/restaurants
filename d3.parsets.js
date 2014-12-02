@@ -1,6 +1,6 @@
 // Parallel Sets by Jason Davies, http://www.jasondavies.com/
 // Functionality based on http://eagereyes.org/parallel-sets
-var catBarHeight = 20;
+var catBarHeight = 25;
 var textRotation = 0;
 var tx = 10;
 var ty = 10;
@@ -121,8 +121,9 @@ var chartY = 50;
               });
           dEnter.append("rect")
               .attr("width", width)
-              .attr("y", -45)
+              .attr("y", -25)
               .attr("height", 45);
+              /*
           var textEnter = dEnter.append("text")
               .attr("class", "dimension")
               .attr("transform", "translate(0,-25)");
@@ -138,7 +139,7 @@ var chartY = 50;
               .attr("class", "sort size")
               .attr("dx", "2em")
               .text("size »")
-              .on("mousedown.parsets", cancelEvent);
+              .on("mousedown.parsets", cancelEvent); */
           dimension
               .call(d3.behavior.drag()
                 .origin(identity)
@@ -350,9 +351,8 @@ var chartY = 50;
               .tween("ribbon", ribbonTweenX);
 
           categoryEnter.append("rect")
-              //.attr("width", function(d) { return d.dx; })
               .attr("width", function(d) { return d.dx; })
-              .attr("y", -20)
+              .attr("y", -10)
               .attr("height", 20);
           //Categories horizontal bars    
           categoryEnter.append("line")
@@ -366,7 +366,10 @@ var chartY = 50;
                 return "category-" + (d.dimension === dimensions[0] ? ordinal(d.name) : "background");
               });
           category.select("line")
-              .attr("x2", function(d) { return d.dx; });
+              .attr("x2", function(d) { return d.dx; })
+              .attr("class", function(d) {
+                return "category-" + (d.dimension === dimensions[0] ? ordinal(d.name) : "background");
+              });
           category.select("text")
               .text(truncateText(function(d) { return d.dimension.name + ": " +  d.name; }, function(d) { return d.dx; }));
         }

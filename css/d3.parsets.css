@@ -30,6 +30,12 @@ h1, h2, .dimension text {
   fill: #fff;
   font-size: 12px;
   text-transform: uppercase;
+  letter-spacing: 0.1px;
+}
+
+rect.category-0 {
+  fill: #eebb2c;
+  stroke: #eebb2c;
 }
 
 h1 {
@@ -109,9 +115,20 @@ text.icicle {
 }
 
 .dimension line {
-  stroke: #000;
-  opacity: 0.7;
+  stroke: rgba(0, 0, 0, 0.5);
   text-align: center;
+}
+
+line.category-0 {
+  stroke: #eebb2c;
+}
+
+line.category-1 {
+  stroke: #e02827;
+}
+
+line.category-2 {
+  stroke: #40709c;
 }
 
 .dimension rect {

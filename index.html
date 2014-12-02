@@ -17,7 +17,7 @@
 	var padding_width = 200;
 	var padding_height = 200;
 	var chart = d3.parsets()
-    .dimensions(["status", "income", "region", "married", "children", "sex", "age"]);
+    .dimensions(["status", "income", "region", "married", "age", "children", "sex"]);
 
 	var vis = d3.select("#vis").append("svg")
     .attr("width", (chart.width() + padding_width))
